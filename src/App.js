@@ -1,15 +1,13 @@
 import React from 'react';
 import './App.css';
+import MarkdownEditor from './components/MarkdownEditor'
+
+
 
 function App() {
   return (
     <div className="App">
-    <div>
-      editor
-    </div>
-    <div>
-      preview
-    </div>
+      <MarkdownEditor />
     </div>
   );
 }

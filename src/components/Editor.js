@@ -1,9 +1,22 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-function Editor() {
-  return (
-<div>1</div>
+class Editor extends Component {
+  constructor(props) {
+  super(props)
+
+}
+
+  render = () => {
+    return(
+<div>
+  <p>Editor view</p>
+  <textarea id="editor"
+  type="text"
+  value={this.props.editorText}
+  ></textarea>
+</div>
   )
+}
 }
 
 export default Editor

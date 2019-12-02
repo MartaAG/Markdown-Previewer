@@ -2,7 +2,9 @@ import React from 'react';
 
 function Preview() {
   return (
-<div>2</div>
+  <div id="preview">
+  <p>Preview view</p>
+  </div>
   )
 }
 
