@@ -5,15 +5,21 @@ import Preview from './Preview'
 class MarkdownEditor extends Component {
   constructor(props) {
     super(props)
-    this.state = {editorText: '',
+    this.state = {
+    editorText: '',
     test:"atasd"}
+    this.changeText = this.changeText.bind(this)
+  }
+
+  changeText(text) {
+    this.setState({editorText: text})
   }
 
   render = () => {
     return (
       <div className="container">
-        <Editor editorText={this.state.editorText}/>
-        <Preview />
+        <Editor inputText={this.state.editorText} onTextChange = {this.changeText}/>
+        <Preview displayed={this.state.editorText}/>
       </div>
     )
   }

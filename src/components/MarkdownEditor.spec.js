@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import {shallow} from 'enzyme';
 import Preview from './Preview';
 import Editor from './Editor';
 import MarkdownEditor from './MarkdownEditor'
@@ -13,16 +13,24 @@ describe('MarkdownEditor', () => {
   });
 
   it('should render components', () => {
-    expect(wrapper.containsMatchingElement(
-      <Editor />,
-      <Preview />
-    )).toEqual(true)
+    expect(wrapper.containsMatchingElement(<Editor/>, <Preview/>)).toEqual(true)
   });
 
-  it ('should render string of the Editor component to the Preview Component', () => {
+  it('should render string of the Editor component to the Preview Component', () => {
     let testingString = "Testing preview";
     wrapper.setState({editorText: testingString})
-    expect(wrapper.find('Editor').prop('editorText')).toEqual(testingString)
-    expect(wrapper.find('Preview').prop('editorText')).toEqual(testingString)
+    expect(wrapper.find('Editor').prop('inputText')).toEqual(testingString)
+    expect(wrapper.find('Preview').prop('displayed')).toEqual(testingString)
+  });
+
+  it('changing props of Editor changes editorText in MarkdownEditor and Preview', () => {
+    wrapper.setState({editorText: 'Blah'})
+    let testingString = "Testing";
+
+    wrapper.find('Editor').props().onTextChange(testingString)
+
+    expect(wrapper.find('Editor').prop('inputText')).toEqual(testingString)
+    expect(wrapper.state('editorText')).toEqual(testingString)
+    expect(wrapper.find('Preview').prop('displayed')).toEqual(testingString)
   });
 });
