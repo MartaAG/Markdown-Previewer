@@ -1,0 +1,13 @@
+#preview {
+  overflow-y:scroll;
+  overflow-x: hidden;
+  width: 70%;
+  height: 260px;
+  padding: 2em;
+
+}
+
+.container3 {
+  width:50%;
+  padding: 2em;
+}
