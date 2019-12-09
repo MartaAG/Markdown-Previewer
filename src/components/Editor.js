@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Editor.css'
+import dompurify from 'dompurify'
 
 
 class Editor extends Component {
@@ -9,7 +10,8 @@ class Editor extends Component {
   }
 
   handleChange(e) {
-    this.props.onTextChange(e.target.value)
+    let sanitazed = dompurify.sanitize(e.target.value);
+    this.props.onTextChange(sanitazed)
   }
 
   render = () => {
